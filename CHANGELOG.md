@@ -1,6 +1,14 @@
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.3.0**
+* Updated iOS SDK to 5.0.0 (GA-SDK-IOS)
+* Updated Android SDK to 7.0.0 (gameanalytics-android)
+* Updated Web JavaScript SDK to 4.4.6
+* Upgraded plugin to support latest Flutter version
+* Added example_new project with updated Flutter SDK support
+* Updated build configurations for iOS and Android
+
 **1.2.7**
 * updated ios libs
 
