@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'gameanalytics_sdk'
-  s.version          = '1.3.0'
+  s.version          = '1.3.1'
   s.summary          = 'Official Flutter SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players behaviour by delivering relevant insights.'
   s.description      = 'Official Flutter SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players behaviour by delivering relevant insights.'
   s.homepage         = 'https://gameanalytics.com'
