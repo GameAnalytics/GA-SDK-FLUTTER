@@ -1,7 +1,7 @@
 #import "GameAnalyticsPlugin.h"
 #import <GameAnalytics/GameAnalytics.h>
 
-#define VERSION @"1.3.0"
+#define VERSION @"1.3.1"
 
 @implementation GameAnalyticsPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -24,6 +24,7 @@
             list_array = [NSJSONSerialization JSONObjectWithData:[customDimensions dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics configureAvailableCustomDimensions01:list_array];
+        result(nil);
     }
     else if ([@"configureAvailableCustomDimensions02" isEqualToString:call.method])
     {
@@ -34,6 +35,7 @@
             list_array = [NSJSONSerialization JSONObjectWithData:[customDimensions dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics configureAvailableCustomDimensions02:list_array];
+        result(nil);
     }
     else if ([@"configureAvailableCustomDimensions03" isEqualToString:call.method])
     {
@@ -44,6 +46,7 @@
             list_array = [NSJSONSerialization JSONObjectWithData:[customDimensions dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics configureAvailableCustomDimensions03:list_array];
+        result(nil);
     }
     else if ([@"configureAvailableResourceCurrencies" isEqualToString:call.method])
     {
@@ -54,6 +57,7 @@
             list_array = [NSJSONSerialization JSONObjectWithData:[resourceCurrencies dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics configureAvailableResourceCurrencies:list_array];
+        result(nil);
     }
     else if ([@"configureAvailableResourceItemTypes" isEqualToString:call.method])
     {
@@ -64,6 +68,7 @@
             list_array = [NSJSONSerialization JSONObjectWithData:[resourceItemTypes dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics configureAvailableResourceItemTypes:list_array];
+        result(nil);
     }
     else if ([@"configureBuild" isEqualToString:call.method])
     {
@@ -74,12 +79,14 @@
             build = @"";
         }
         [GameAnalytics configureBuild:build];
+        result(nil);
     }
     else if ([@"configureAutoDetectAppVersion" isEqualToString:call.method])
     {
         NSMutableDictionary* args = call.arguments;
         BOOL flag = [args[@"flag"] boolValue];
         [GameAnalytics configureAutoDetectAppVersion:flag];
+        result(nil);
     }
     else if ([@"configureUserId" isEqualToString:call.method])
     {
@@ -90,6 +97,7 @@
             uId = @"";
         }
         [GameAnalytics configureUserId:uId];
+        result(nil);
     }
     else if ([@"initialize" isEqualToString:call.method])
     {
@@ -108,6 +116,7 @@
 
         [GameAnalytics configureSdkVersion:sdkVersion];
         [GameAnalytics initializeWithGameKey:gameKey gameSecret:secretKey];
+        result(nil);
     }
     else if ([@"addBusinessEvent" isEqualToString:call.method])
     {
@@ -137,6 +146,7 @@
         {
             [GameAnalytics addBusinessEventWithCurrency:currency amount:amount itemType:itemType itemId:itemId cartType:cartType receipt:receipt customFields:fields_dict mergeFields:mergeFields];
         }
+        result(nil);
     }
     else if ([@"addResourceEvent" isEqualToString:call.method])
     {
@@ -158,6 +168,7 @@
         }
 
         [GameAnalytics addResourceEventWithFlowType:(GAResourceFlowType)flowType currency:currency amount:amount itemType:itemType itemId:itemId customFields:fields_dict mergeFields:mergeFields];
+        result(nil);
     }
     else if ([@"addProgressionEvent" isEqualToString:call.method])
     {
@@ -194,6 +205,7 @@
         {
             [GameAnalytics addProgressionEventWithProgressionStatus:(GAProgressionStatus)progressionStatus progression01:progression01 progression02:progression02 progression03:progression03 customFields:fields_dict mergeFields:mergeFields];
         }
+        result(nil);
     }
     else if ([@"addDesignEvent" isEqualToString:call.method])
     {
@@ -227,6 +239,7 @@
         {
             [GameAnalytics addDesignEventWithEventId:eventId customFields:fields_dict mergeFields:mergeFields];
         }
+        result(nil);
     }
     else if ([@"addErrorEvent" isEqualToString:call.method])
     {
@@ -246,6 +259,7 @@
         }
 
         [GameAnalytics addErrorEventWithSeverity:(GAErrorSeverity)severity message:message customFields:fields_dict mergeFields:mergeFields];
+        result(nil);
     }
     else if ([@"addAdEvent" isEqualToString:call.method])
     {
@@ -288,30 +302,35 @@
         {
             [GameAnalytics addAdEventWithAction:(GAAdAction)adAction adType:(GAAdType)adType adSdkName:adSdkName adPlacement:adPlacement noAdReason:(GAAdError)noAdReason customFields:fields_dict mergeFields:mergeFields];
         }
+        result(nil);
     }
     else if ([@"setEnabledInfoLog" isEqualToString:call.method])
     {
         NSMutableDictionary* args = call.arguments;
         BOOL flag = [args[@"flag"] boolValue];
         [GameAnalytics setEnabledInfoLog:flag];
+        result(nil);
     }
     else if ([@"setEnabledVerboseLog" isEqualToString:call.method])
     {
         NSMutableDictionary* args = call.arguments;
         BOOL flag = [args[@"flag"] boolValue];
         [GameAnalytics setEnabledVerboseLog:flag];
+        result(nil);
     }
     else if ([@"setEnabledManualSessionHandling" isEqualToString:call.method])
     {
         NSMutableDictionary* args = call.arguments;
         BOOL flag = [args[@"flag"] boolValue];
         [GameAnalytics setEnabledManualSessionHandling:flag];
+        result(nil);
     }
     else if ([@"setEnabledEventSubmission" isEqualToString:call.method])
     {
         NSMutableDictionary* args = call.arguments;
         BOOL flag = [args[@"flag"] boolValue];
         [GameAnalytics setEnabledEventSubmission:flag];
+        result(nil);
     }
     else if ([@"setCustomDimension01" isEqualToString:call.method])
     {
@@ -322,6 +341,7 @@
             dimension = @"";
         }
         [GameAnalytics setCustomDimension01:dimension];
+        result(nil);
     }
     else if ([@"setCustomDimension02" isEqualToString:call.method])
     {
@@ -332,6 +352,7 @@
             dimension = @"";
         }
         [GameAnalytics setCustomDimension02:dimension];
+        result(nil);
     }
     else if ([@"setCustomDimension03" isEqualToString:call.method])
     {
@@ -342,6 +363,7 @@
             dimension = @"";
         }
         [GameAnalytics setCustomDimension03:dimension];
+        result(nil);
     }
     else if ([@"setGlobalCustomEventFields" isEqualToString:call.method])
     {
@@ -352,14 +374,17 @@
             fields_dict = [NSJSONSerialization JSONObjectWithData:[args[@"customFields"] dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         }
         [GameAnalytics setGlobalCustomEventFields:fields_dict];
+        result(nil);
     }
     else if ([@"startSession" isEqualToString:call.method])
     {
         [GameAnalytics startSession];
+        result(nil);
     }
     else if ([@"endSession" isEqualToString:call.method])
     {
         [GameAnalytics endSession];
+        result(nil);
     }
     else if ([@"getRemoteConfigsValueAsString" isEqualToString:call.method])
     {
@@ -382,10 +407,6 @@
     else if ([@"isRemoteConfigsReady" isEqualToString:call.method])
     {
         result(@([GameAnalytics isRemoteConfigsReady]));
-    }
-    else if ([@"getRemoteConfigsContentAsString" isEqualToString:call.method])
-    {
-        result([GameAnalytics getRemoteConfigsContentAsString]);
     }
     else if ([@"getRemoteConfigsContentAsString" isEqualToString:call.method])
     {

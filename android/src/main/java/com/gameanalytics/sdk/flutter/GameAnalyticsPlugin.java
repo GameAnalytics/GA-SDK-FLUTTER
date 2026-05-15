@@ -24,7 +24,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
 {
     private MethodChannel channel;
     private Activity activity;
-    private static final String VERSION = "1.3.0";
+    private static final String VERSION = "1.3.1";
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding)
@@ -52,10 +52,12 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 }
 
                 GameAnalytics.configureAvailableCustomDimensions01(array.toArray(new String[0]));
+                result.success(null);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
+                result.error("ERROR", "configureAvailableCustomDimensions01: customDimensions argument could not be parsed as JSON", null);
             }
         }
         else if (call.method.equals("configureAvailableCustomDimensions02"))
@@ -74,10 +76,12 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 }
 
                 GameAnalytics.configureAvailableCustomDimensions02(array.toArray(new String[0]));
+                result.success(null);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
+                result.error("ERROR", "configureAvailableCustomDimensions02: customDimensions argument could not be parsed as JSON", null);
             }
         }
         else if (call.method.equals("configureAvailableCustomDimensions03"))
@@ -96,10 +100,12 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 }
 
                 GameAnalytics.configureAvailableCustomDimensions03(array.toArray(new String[0]));
+                result.success(null);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
+                result.error("ERROR", "configureAvailableCustomDimensions03: customDimensions argument could not be parsed as JSON", null);
             }
         }
         else if (call.method.equals("configureAvailableResourceCurrencies"))
@@ -118,10 +124,12 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 }
 
                 GameAnalytics.configureAvailableResourceCurrencies(array.toArray(new String[0]));
+                result.success(null);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
+                result.error("ERROR", "configureAvailableResourceCurrencies: resourceCurrencies argument could not be parsed as JSON", null);
             }
         }
         else if (call.method.equals("configureAvailableResourceItemTypes"))
@@ -140,16 +148,19 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 }
 
                 GameAnalytics.configureAvailableResourceItemTypes(array.toArray(new String[0]));
+                result.success(null);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
+                result.error("ERROR", "configureAvailableResourceItemTypes: resourceItemTypes argument could not be parsed as JSON", null);
             }
         }
         else if (call.method.equals("configureBuild"))
         {
             String build = call.argument("build");
             GameAnalytics.configureBuild(build);
+            result.success(null);
         }
         else if (call.method.equals("configureAutoDetectAppVersion"))
         {
@@ -157,6 +168,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(flag != null)
             {
                 GameAnalytics.configureAutoDetectAppVersion(flag);
+                result.success(null);
             }
             else
             {
@@ -167,6 +179,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
         {
             String uId = call.argument("uId");
             GameAnalytics.configureUserId(uId);
+            result.success(null);
         }
         else if (call.method.equals("initialize"))
         {
@@ -175,6 +188,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             String sdkVersion = "flutter " + VERSION;
             GameAnalytics.configureSdkGameEngineVersion(sdkVersion);
             GameAnalytics.initialize(this.activity, gameKey, secretKey);
+            result.success(null);
         }
         else if (call.method.equals("addBusinessEvent"))
         {
@@ -207,6 +221,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 {
                     GameAnalytics.addBusinessEvent(currency, amount, itemType, itemId, cartType, fields, mergeFields);
                 }
+                result.success(null);
             }
             else
             {
@@ -234,6 +249,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             {
                 GameAnalytics.addResourceEvent(flowType, currency, amount.floatValue(), itemType, itemId, fields,
                         mergeFields);
+                result.success(null);
             }
             else
             {
@@ -283,6 +299,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                     GameAnalytics.addProgressionEvent(progressionStatus, progression01, progression02, progression03,
                             fields, mergeFields);
                 }
+                result.success(null);
             }
             else
             {
@@ -317,6 +334,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             {
                 GameAnalytics.addDesignEvent(eventId, fields, mergeFields);
             }
+            result.success(null);
         }
         else if (call.method.equals("addErrorEvent"))
         {
@@ -335,6 +353,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(severity != null)
             {
                 GameAnalytics.addErrorEvent(severity, message, fields, mergeFields);
+                result.success(null);
             }
             else
             {
@@ -385,6 +404,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
                 {
                     GameAnalytics.addAdEvent(adAction, adType, adSdkName, adPlacement, fields, mergeFields);
                 }
+                result.success(null);
             }
             else
             {
@@ -398,6 +418,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(flag != null)
             {
                 GameAnalytics.setEnabledInfoLog(flag);
+                result.success(null);
             }
             else
             {
@@ -411,6 +432,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(flag != null)
             {
                 GameAnalytics.setEnabledVerboseLog(flag);
+                result.success(null);
             }
             else
             {
@@ -424,6 +446,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(flag != null)
             {
                 GameAnalytics.setEnabledManualSessionHandling(flag);
+                result.success(null);
             }
             else
             {
@@ -437,6 +460,7 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
             if(flag != null)
             {
                 GameAnalytics.setEnabledEventSubmission(flag);
+                result.success(null);
             }
             else
             {
@@ -447,29 +471,35 @@ public class GameAnalyticsPlugin implements FlutterPlugin, MethodCallHandler, Ac
         {
             String dimension = call.argument("dimension");
             GameAnalytics.setCustomDimension01(dimension);
+            result.success(null);
         }
         else if (call.method.equals("setCustomDimension02"))
         {
             String dimension = call.argument("dimension");
             GameAnalytics.setCustomDimension02(dimension);
+            result.success(null);
         }
         else if (call.method.equals("setCustomDimension03"))
         {
             String dimension = call.argument("dimension");
             GameAnalytics.setCustomDimension03(dimension);
+            result.success(null);
         }
         else if (call.method.equals("setGlobalCustomEventFields"))
         {
             String customFields = call.argument("customFields");
             GameAnalytics.setGlobalCustomEventFields(customFields);
+            result.success(null);
         }
         else if (call.method.equals("startSession"))
         {
             GameAnalytics.startSession();
+            result.success(null);
         }
         else if (call.method.equals("endSession"))
         {
             GameAnalytics.endSession();
+            result.success(null);
         }
         else if (call.method.equals("getRemoteConfigsValueAsString"))
         {
