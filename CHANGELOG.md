@@ -2,9 +2,10 @@ Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
 **1.3.1**
-* Fixed iOS and Android Flutter method channel calls for void-returning SDK methods so returned Futures complete.
-* Added tests covering Dart method channel forwarding and native void method reply coverage.
-* Fixed the bundled example path dependency name to match the package name.
+* Updated iOS SDK to 5.0.1 (GA-SDK-IOS)
+* Updated Android SDK to 7.0.1 (gameanalytics-android)
+* Fixed iOS and Android Flutter method channel calls for void-returning SDK methods so returned Futures complete
+* Added tests covering Dart method channel forwarding and native void method reply coverage
 
 **1.3.0**
 * Updated iOS SDK to 5.0.0 (GA-SDK-IOS)
