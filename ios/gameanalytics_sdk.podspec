@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*.{h,m,}'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'GA-SDK-IOS', '5.0.0'
+  s.dependency 'GA-SDK-IOS', '5.0.1'
   s.platform = :ios, '9.0'
 
   s.static_framework = true
