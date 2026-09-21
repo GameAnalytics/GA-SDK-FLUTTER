@@ -11,11 +11,11 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'GameAnalytics' => 'sdk@gameanalytics.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{h,m,}'
-  s.public_header_files = 'Classes/**/*.h'
+  s.source_files = 'gameanalytics_sdk/Sources/gameanalytics_sdk/**/*.{h,m}'
+  s.public_header_files = 'gameanalytics_sdk/Sources/gameanalytics_sdk/include/**/*.h'
   s.dependency 'Flutter'
   s.dependency 'GA-SDK-IOS', '5.0.1'
-  s.platform = :ios, '9.0'
+  s.platform = :ios, '12.0'
 
   s.static_framework = true
   # Flutter.framework does not contain a i386 slice.

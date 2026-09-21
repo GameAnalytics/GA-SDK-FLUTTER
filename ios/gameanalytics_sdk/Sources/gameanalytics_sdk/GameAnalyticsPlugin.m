@@ -1,4 +1,4 @@
-#import "GameAnalyticsPlugin.h"
+#import "./include/gameanalytics_sdk/GameAnalyticsPlugin.h"
 #import <GameAnalytics/GameAnalytics.h>
 
 #define VERSION @"1.3.1"
